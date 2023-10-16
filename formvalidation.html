@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Payment Sign Up</title>
+    
+    <script>
+       $(document).ready(function(){
+  $("button").click(function(){
+    $("p").hide("slow", function(){
+      alert("The paragraph is now hidden");
+    });
+  });
+});
+        function validateForm() {
+            const emailInput = document.getElementById('email');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const reenterPasswordInput = document.getElementById('reenter-password');
+
+            const email = emailInput.value;
+            const username = usernameInput.value;
+            const password = passwordInput.value;
+            const reenterPassword = reenterPasswordInput.value;
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const passwordPattern = /^(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}$/;
+
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+
+            if (username.trim() === '') {
+                alert('Please enter a username.');
+                return false;
+            }
+
+            if (!passwordPattern.test(password)) {
+                alert('Enter a valid password.');
+                return false;
+            }
+
+            if (password !== reenterPassword) {
+                alert('Passwords do not match.');
+                return false;
+            }
+
+            alert('Form submitted successfully!');
+            return true;
+        }
+    </script>
+    <style> 
+        #panel, #flip {
+          padding: 5px;
+          text-align: center;
+          background-color: #e5eecc;
+          border: solid 1px #c3c3c3;
+        }
+        
+        #panel {
+          padding: 50px;
+          display: none;
+        }
+        </style>
+</head>
+<body>
+    <button>Hide</button>
+
+    <p>This is a paragraph with little content.</p>
+   
+    <form action="login.html" onsubmit="return validateForm();">
+        <form action="login.html" onsubmit="return onSubmitForm();">
+            <h1 align="center">Account Signup</h1> 
+    
+            
+    
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Your username"><br>
+
+            <label for="email">Email Id</label>
+            <input type="email" id="email" name="email" placeholder="Personal email"><br>
+    
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Your password.."><br>
+    
+            <label for="reenter-password">Confirm Password</label>
+            <input type="password" id="reenter-password" name="reenter password"><br>
+    
+            <input type="submit" value="Click to Submit">
+        
+    </form>
+</body>
+</html>
